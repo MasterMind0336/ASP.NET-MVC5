@@ -1,0 +1,132 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Data.Entity; //This namespace will enable you to access EntityState keyword
+using DatabaseFirstApproach.Models; //Reference of Application Context class
+
+namespace DatabaseFirstApproach.Controllers
+{
+    public class HomeController : Controller
+    {
+        //Making Object of Context class... 
+        HospitalManagementEntities obj = new HospitalManagementEntities();
+
+        //Index.....
+        public ActionResult Index()
+        {
+            var data = obj.Doctors.ToList();
+            return View(data);
+        }
+
+        //Create....
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Doctor d)
+        {
+            if (ModelState.IsValid==true)
+            {
+                obj.Doctors.Add(d);
+                int value = obj.SaveChanges();
+                if (value > 0)
+                {
+                    TempData["Msg1"] = "<script>alert('Data inserted..!')</script>";
+                    ModelState.Clear();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.Msg1 = "Data not inserted";
+                }
+            }        
+            return View();
+        }
+
+
+        //Edit....
+        public ActionResult Edit(int id)
+        {
+            var row = obj.Doctors.Where(model => model.ID == id).FirstOrDefault();
+            return View(row);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Doctor d)
+        {
+            if (ModelState.IsValid==true)
+            {
+                obj.Entry(d).State = EntityState.Modified;
+                int value = obj.SaveChanges();
+                if (value > 0)
+                {
+                    TempData["Msg2"] = "<script>alert('Data Updated..!')</script>";
+                    ModelState.Clear();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.Msg2 = "Data not Updated";
+                }
+            }
+            return View();
+        }
+
+
+
+        //Delete....
+        public ActionResult Delete(int id)
+        {
+            var row = obj.Doctors.Where(model => model.ID == id).FirstOrDefault();
+            return View(row);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Doctor d)
+        {
+            if (ModelState.IsValid == true)
+            {
+                obj.Entry(d).State = EntityState.Deleted;
+                int value = obj.SaveChanges();
+                if (value > 0)
+                {
+                    TempData["Msg3"] = "<script>alert('Data Deleted..!')</script>";
+                    ModelState.Clear();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.Msg3 = "Data not Deleted";
+                }
+            }
+            return View();
+        }
+
+
+        //Details....
+        public ActionResult Details(int id)
+        {
+            var row = obj.Doctors.Where(model => model.ID == id).FirstOrDefault();
+            return View(row);
+        }
+
+        
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";      
+            return View();
+        }        
+  
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+    }
+}

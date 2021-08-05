@@ -1,0 +1,120 @@
+@model IEnumerable<DatabaseFirstApproach.Models.Doctor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--For displaying Java Script promt method-->
+@Html.Raw(TempData["Message2"])
+
+
+
+
+
+<div>
+<!--For Heading-->
+<div class="jumbotron">
+    <h2 class="text" style="text-align:center;">CRUD APPLICATION FOR HOSPITAL MANAGEMENT</h2>
+
+</div>
+    </div>
+    
+
+
+
+<!--For Rotating Animation on Text-->
+<style>
+  
+ 
+    .jumbotron
+ {
+     background:rgba(27,31,34);  
+     width:auto;
+ }
+  .text
+  {
+      color:aqua;
+      position:relative;
+      font-weight:600;
+      animation:animate 5s 1 ease-in-out;
+  }
+  @@keyframes animate
+  {
+      0%
+      {
+          color:white;
+          transform:rotateY(90deg);
+          filter:blur(10px);
+      }
+      50%
+      {
+           filter:blur(0px);
+           transform:rotateY(-90deg);
+      }
+      85%
+      {
+          margin-bottom:40px;
+      }
+  }
+  
+ 
+   
+    
+</style>
+
+
+
+
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shift)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shift)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

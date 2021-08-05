@@ -1,0 +1,101 @@
+
+
+
+
+========================== D E S C R I P T I O N ==========================
+
+
+-------------------------------------------------------------
+Database First Approach Of Entity Framework in ASP.NET MVC5:-
+-------------------------------------------------------------
+=> In Database first approach, the Entity framework create model classes & properties,
+corresponding to the existing database objects such as tables & columns.
+
+=> The Database first approach is applicable in sceario where database already exist for the application.
+
+=> In Database first approach, Entity framework auto generates model class and context class
+according to our databse tables and columns.
+
+=> Entity framework with "Entity Data Model".
+
+=> Entity Data Model defines the structure of a table which exists in database.
+
+=> With the herlp of Entity Data Model , we can create Auto-Generated model classes according to our tables and columns.
+
+
+---------
+Summary:-  Entity Data Model converts existing tables into Model Classes.
+---------
+
+
+==========================
+Practical Implementation:-
+==========================
+Create new project --> Select web --> Click on ASP.NET WebApplication and name it DatabaseFirstApproach --> Click Ok.
+Select empty --> Mark check on MVC --> Click Ok.
+
+
+Now, Install Entity Framework --> Right click on Project named "DatabaseFirstApproach" --> Manage NuGet Packages -->
+Search Entity Framework --> Click on entity Framework --> Click on Install and wait till the process Finished..!
+
+
+Now, go to Sql Server Management Studio --> Right Click on Database --> Add new Database named "HospitalManagement"
+--> Click on Ok. Right Click on Tables --> Add Table.
+
+
+Now, Set Columns name and Data types with respective fields.
+
+------------
+For Example: 
+------------
+ID      Name      Gender      Age      Shift      Salary
+1       Ali       Male        27       Morning    100000
+2       Usman     Male        22       Evening    400000
+3       Rida      Female      21       Morning    500000
+4       Zain      Male        28       Evening    700000
+
+
+
+
+Now, save it by pressing Ctrl+s = (Saved!) --> And name it "Doctor"
+
+
+Right click on ID and set primary key --> Go to Column properties,  make it Auto incremented.!
+
+
+Execute it --> And Right click on dbo.Doctor to check records in table.
+
+
+Now, Go to Visual Studio --> Right Click on Models Folder --> Add --> New item --> Select Data --> ADO.NET Entity Data Model
+--> Name it DoctorDbModel --> Click Add.
+
+
+
+Now, Select EF Designer From Database --> Click on Next --> New Connection --> Go to Sql Server --> Copy Server Name 
+--> Paste it on New Connection Server name --> Select "HospitalManagement" in drop down option --> Click on test connection
+--> click ok --> Click on next --> Expand tables --> Mark check on all three boxes --> Click on Finish.
+
+
+
+Add HomeController --> Right Click on Controller --> Add --> Controller --> Select Empty.
+On HomeController, add namespaces....
+
+using DatabaseFirstApproach.Models;
+using System.Data.Entity;
+
+
+
+Note: By using this namespace (using DatabaseFirstAppraoch.Models;) you will be able to make object of Context class.
+This namespace is basically a reference of Models folder in which your Context class exists.
+
+
+By using This namespace (using System.Data.Entity;) you can access StateEntity keyword which manipulates the data
+in database.
+
+
+Now, Finally for further and better understanding you can check HomeController.txt and all views existed in Views folder.
+
+
+
+
+
