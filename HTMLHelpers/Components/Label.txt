@@ -1,0 +1,35 @@
+
+
+
+
+-------------
+@Html.Label()
+-------------
+
+
+=> This helper method used for displaying message before Textbox.
+
+
+------------
+For Example:
+------------
+
+@Html.Label("Enter your name:")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

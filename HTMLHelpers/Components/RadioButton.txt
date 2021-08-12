@@ -1,0 +1,72 @@
+
+
+
+
+
+
+-------------------
+@Html.RadioButton()
+-------------------
+
+
+  
+                     <!--Radio Button For Gender Selection-->
+
+
+            @Html.Label("Male")
+            @Html.RadioButton("Gender","Male")    <!-- Radio Button 1 -->
+
+
+            @Html.Label("Female")
+            @Html.RadioButton("Gender","Female")  <!-- Radio Button 2 -->
+
+
+
+                      <!--/Radio Button For Gender Selection-->
+
+
+
+@*
+1st Argument is your RadioButton's name,
+2nd Argument is your RadioButton's value which can either be Male or Female
+*@
+
+
+
+@*
+Name Of both Radio buttons must be same to get boolean result in checkbox/radio buttons
+*@
+
+
+
+
+                              <!--Radio Button For Course Selection-->
+
+
+
+            @Html.Label("C Programming")
+            @Html.RadioButton("Course","CProgramming")       <!-- Radio Button 1 -->
+
+
+            @Html.Label("Python Programming")
+            @Html.RadioButton("Course","PythonProgramming")  <!-- Radio Button 2 -->
+
+
+            @Html.Label("Web Developing")
+            @Html.RadioButton("Course","WebDeveloping")      <!-- Radio Button 3 -->
+
+    
+            @Html.Label("MS Office")
+            @Html.RadioButton("Course","MSOffice")           <!-- Radio Button 4 -->
+
+
+
+                             <!--/Radio Button For Course Selection-->
+
+
+
+
+
+
+
+

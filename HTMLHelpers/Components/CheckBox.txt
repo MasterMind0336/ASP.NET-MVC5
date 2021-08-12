@@ -1,0 +1,45 @@
+
+
+
+
+----------------
+@Html.CheckBox()
+----------------
+
+
+=> This helper method used for agreeing on Terms and Conditions.
+
+
+=> You can use this helper method for confirmation too.
+
+
+--------------------------
+Syntax With Label Message:
+--------------------------
+
+@Html.CheckBox("Accept") &nbsp;
+@Html.label("I accept to all the terms and conditions")
+
+
+
+=> 1st Argument in @Html.CheckBox() is check box's name by which you can access check box
+or put validations for check box on your backend
+
+
+=> 2nd Argument is used in very rare cases, it is optional and if you want to display your
+check box pre-checked when you run first time your application,
+then write true in your 2nd Argument.
+
+
+------------
+For Example:
+------------
+
+@Html.CheckBox("Accept") &nbsp;
+@Html.label("I accept to all the terms and conditions",true)
+
+=> Now, when you run your application, you will see your check box already checked. 
+
+
+
+

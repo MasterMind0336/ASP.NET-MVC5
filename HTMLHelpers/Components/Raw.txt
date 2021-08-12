@@ -1,0 +1,32 @@
+
+
+
+
+
+----------- 
+@Html.Raw()
+-----------
+
+=> You can use this helper if you are doing scripting in your Controller
+and want to display scripting work in your view.
+
+=> If you are using Method of Java script in your Controller and want to display
+its functionality in your view then use @HtmlRaw() helper.
+
+------------
+For Example: 
+------------
+
+===================
+On Home Controller:
+===================
+TempData["Message"] = "<script>alert('Data inserted')</script>";
+
+
+========
+On View:
+========
+<h2> Index </h2>
+@Html.Raw(TempData["Message"])
+
+ 
