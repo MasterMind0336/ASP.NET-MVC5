@@ -1,0 +1,70 @@
+
+
+--------------------------
+@Html.Validation Message()
+--------------------------
+
+=> The Html.ValidationMessage() is an extension method that is loosely typed method.
+
+=> It displays a validation message if an error exists for the specified field in the
+ModelStateDictionary object.
+
+
+----------------------------------------------------------
+Syntax And Practical Implementation For VaildationMessage:
+----------------------------------------------------------
+
+================
+On Index.cshtml:
+================
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+       <!--For Name-->
+    <p>Enter Name:  @Html.TextBox("Name")
+        @Html.ValidationMessage("Name")</p>
+
+       <!--For Age-->
+    <p>Enter Age:   @Html.TextBox("Age")
+        @Html.ValidationMessage("Age")</p>
+
+       <!--For Email-->
+    <p>Enter Email: @Html.TextBox("Email")
+        @Html.ValidationMessage("Email")</p>
+
+       <!--For Button-->
+      <input type="submit" value="Submit"/>
+}
+
+
+==============
+On Controller:
+==============
+
+        public ActionResult Index()
+        {                
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index(string Name, string Age,string Email)
+        {
+            if (Name.Equals("") == true)
+            {
+                ModelState.AddModelError("Name", "Name is required!!");
+            }
+
+            if (Age.Equals("") == true)
+            {
+                ModelState.AddModelError("Age", "Age is required!!");
+            }
+
+            if (Email.Equals("") == true)
+            {
+                ModelState.AddModelError("Email", "Email is required!!");
+            }
+            return View();
+        }
+
+
+
+

@@ -1,0 +1,21 @@
+
+
+
+--------------
+@Html.Hidden()
+--------------
+
+=> You can use this helper for Hidden field. 
+
+=> This is basically a hidden text box in which you are taking 
+sensitive info like User Id by fetching data from Database.
+
+=> User can delete or edit data but cannot see ID.
+
+
+
+-------
+Syntax:
+-------
+
+@Html.Hidden("id") 

@@ -1,0 +1,148 @@
+
+
+
+-----------------------------
+Methods Of Opening Form Body:
+-----------------------------
+
+
+
+
+--------
+Method:1   (Through Html Helper Method) 
+--------
+
+
+@{
+  Html.BeginForm("Index", "Home", FormMethod.Get);
+}
+
+
+
+@Html.Label("Enter Your name: ")
+@Html.TextBox("name")
+
+
+@Html.Label("Enter Age:")
+@Html.TextBox("age")
+
+
+@Html.Label("Enter your Cell no:")
+@Html.TextBox("CellNo")
+<br />
+<br />
+@Html.Label("Choose your gender")
+<br />
+@Html.RadioButton("Gender","Male")<b>Male</b>
+@Html.RadioButton("Gender","Female")<b>Female</b>
+
+
+
+@{
+  Html.EndForm();
+}
+
+
+
+
+
+
+
+
+--------
+Method:2   (Through Html Tag)
+--------
+
+
+
+
+<form method="get">
+
+
+<input type="text" name="userName" placeholder="Enter Name"/>
+<br/>
+
+Male   <input type="radio" name="Gender" value="Male"/>
+
+Female <input type="radio" name="Gender" value="Female"/>
+
+<input type="Submit" value="Submit"/>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+--------
+Method:3   (Through Html Helper Method but with "using" keyword)
+--------
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+
+    @Html.Label("Enter Your name: ")
+    @Html.TextBox("name")
+
+
+    @Html.Label("Enter Age:")
+    @Html.TextBox("age")
+
+
+    @Html.Label("Enter your Cell no:")
+    @Html.TextBox("CellNo")
+    <br />
+    <br />
+    @Html.Label("Choose your gender")
+    <br />
+    @Html.RadioButton("Gender", "Male")<b>Male</b>
+    @Html.RadioButton("Gender", "Female")<b>Female</b>
+
+}
+
+
+@*
+Note: In "@Html.BeginForm()"
+1st Argument is your Action Method's name,
+2nd Argument is your Controller name,
+3rd Argument is optional. You can write FormMethod.Get or FormMethod.Post,
+or you can simply leave it empty according to the situation.
+*@
+
+
+
+@*Example:1 *@
+
+@{
+  Html.BeginForm("Index","Home",FormMethod.Get);
+}
+
+
+
+@*Example:2 *@
+
+@{
+  Html.BeginForm("Index","Home",FormMethod.Post);
+}
+
+
+
+@*Example:3 *@
+
+@{
+  Html.BeginForm("Index","Home");
+}
+
+
+
+
+
+
+

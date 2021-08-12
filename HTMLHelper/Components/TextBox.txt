@@ -1,0 +1,77 @@
+
+
+
+---------------
+@Html.TextBox()
+---------------
+
+
+
+<div style="margin-top:120px;">
+
+
+@Html.label("Enter Your Name:") &nbsp;
+@Html.TextBox("UserName")
+
+
+
+<!--There are several overloaded versions of Html.TextBox to implement Html Attributes in it.-->
+
+<!--We are passing Html attributes (Style and Title) to Html Helper as an anonymous type-->
+
+@Html.TextBox("fullName", "Usman", new
+{
+    style = "background-color:gray; color:White; Font-Weight:bold;",
+    title = "Please Enter your name"
+})
+
+@*Note: Intellicense will not be shown while you are typing Html Attributes after "new keyword",
+Therefore you need to remember Html Attributes which you are typing and implementing
+in your Helper method.*@
+
+    <br /> <br /> 
+
+
+
+@*As we know word "class" can be used as an attribute in Html Helper, but class is
+also a reserve keyword of C# that's why we have to use @ symbol to use it as an Attribute in Html Helper.
+Otherwise it will be considered as C# keyword and give error*@
+
+@Html.TextBox("fullName2", "Ali", new
+{
+    @class = "TextBoxStyle",
+    title="Please enter your name"
+})
+
+    @*Now, Go to Content folder, open Site css file (External Css file)
+     and style your textbox by calling it with it's class name using dot .TextBoxStyle{}*@
+
+
+
+    <br /> <br />
+
+    @*You can also apply bootsrtap class to your textbox*@
+
+    @Html.TextBox("fullName3","Raheel", new
+{
+    @class = "form-control"  /* Note: "form-control" is bootstrap class which applies hover affect on your textbox */
+})
+
+
+
+    <br /> <br />
+
+    @*If you don't want to display pre-written name in your text box,
+     then leave 2nd argument empty. *@
+
+    @Html.TextBox("fullName4", "", new
+{
+    @class = "form-control",
+    title = "Please Enter your name",
+    placeholder="Name"
+})
+
+
+
+  
+    </div>

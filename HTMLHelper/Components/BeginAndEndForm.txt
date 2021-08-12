@@ -1,0 +1,71 @@
+
+
+
+
+
+
+
+-----------------
+@Html.BeginForm()
+-----------------
+
+---------------
+@Html.EndForm()
+---------------
+
+
+=> These helper methods used to open and close Form body.
+
+
+
+-------
+Syntax:
+-------
+
+@{
+  Html.BeginForm("Index", "Home", FormMethod.Get);
+}
+
+
+
+
+@{
+  Html.EndForm();
+}
+
+
+
+
+
+@*
+Note: In "@Html.BeginForm()"
+1st Argument is your Action Method's name,
+2nd Argument is your Controller name,
+3rd Argument is optional. You can write FormMethod.Get or FormMethod.Post,
+or you can simply leave it empty according to the situation.
+*@
+
+
+
+@*Example:1 *@
+
+@{
+  Html.BeginForm("Index","Home",FormMethod.Get);
+}
+
+
+
+@*Example:2 *@
+
+@{
+  Html.BeginForm("Index","Home",FormMethod.Post);
+}
+
+
+
+@*Example:3 *@
+
+@{
+  Html.BeginForm("Index","Home");
+}
+
