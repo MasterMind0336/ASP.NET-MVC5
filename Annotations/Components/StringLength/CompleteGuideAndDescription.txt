@@ -3,7 +3,7 @@
 StringLength:
 =============
 
-=> You can use this Annotation to speacify the Minimum and Maximum lengths
+=> You can use this Annotation to specify the Minimum and Maximum lengths
 of a string field.
 
 
